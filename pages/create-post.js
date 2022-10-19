@@ -3,27 +3,13 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import { css } from "@emotion/css";
 import { ethers } from "ethers";
-import { create } from "ipfs-http-client";
-import { InfuraProjectId, InfuraApiKey } from "../lib/config";
+import ipfsClient from './api/ipfs-config'
 
 /* import contract address and contract owner address */
 import { contractAddress } from "../config";
 
 import Blog from "../artifacts/contracts/Blog.sol/Blog.json";
 
-/* define the ipfs endpoint */
-const auth =
-  "Basic " +
-  Buffer.from(InfuraProjectId + ":" + InfuraApiKey).toString("base64");
-
-const client = create({
-  host: "ipfs.infura.io",
-  port: 5001,
-  protocol: "https",
-  headers: {
-    authorization: auth,
-  },
-});
 
 /* configure the markdown editor to be client-side import */
 const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
@@ -64,7 +50,7 @@ function CreatePost() {
   async function savePostToIpfs() {
     /* save post metadata to ipfs */
     try {
-      const added = await client.add(JSON.stringify(post));
+      const added = await ipfsClient.add(JSON.stringify(post));
       return added.path;
     } catch (err) {
       console.log("error: ", err);
@@ -98,7 +84,7 @@ function CreatePost() {
     /* upload cover image to ipfs and save hash to state */
     const uploadedFile = e.target.files[0];
     if (!uploadedFile) return;
-    const added = await client.add(uploadedFile);
+    const added = await ipfsClient.add(uploadedFile);
     setPost((state) => ({ ...state, coverImage: added.path }));
     setImage(uploadedFile);
   }
