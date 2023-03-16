@@ -5,15 +5,25 @@ function About() {
     <div>
       <h2>Project Info</h2>
       <p>
-        This is a decentralised application to create, store and edit blogs
-        using mainly Hardhat (Solidity), Next, React, Infura, Metamask and IPFS.
+        This is a decentralised application which uses smart contracts to
+        create, store and edit blogs using the ethereum network.
       </p>
       <ul>
         <li>
           To use this Dapp you will be required to connect to a crypto wallet.
           The easy way to do this is to download the Metamask browser extension.
         </li>
-        <div>
+        <div className={externalLink}>
+          →
+          <a
+            href="https://www.youtube.com/watch?v=AJvzNICwcwc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            What is Ethereum gas
+          </a>
+        </div>
+        <div className={externalLink}>
           →
           <a
             href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"
@@ -27,7 +37,7 @@ function About() {
           Once you have created a metamask account, you can join a polygon test
           network and add test MATIC tokens (Polygon native cryptocurrency) in
           order to execute transactions.
-          <div>
+          <div className={externalLink}>
             →
             <a
               href="https://wiki.polygon.technology/docs/develop/network-details/network/"
@@ -37,7 +47,7 @@ function About() {
               Setup a PoS Testnet
             </a>
           </div>
-          <div>
+          <div className={externalLink}>
             →
             <a
               href="https://faucet.polygon.technology/"
@@ -102,6 +112,9 @@ function About() {
   );
 }
 
+const externalLink = css`
+  padding-bottom: 0.2rem;
+`;
 const version = css`
   color: #999999;
 `;
