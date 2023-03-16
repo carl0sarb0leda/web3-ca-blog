@@ -54,3 +54,30 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# Architecture v1.0.0
+
+![Blog Dapp architecture](./assets/dapp_v1.0.0.png)
+
+## Flows
+
+Create new post:
+
+1. post request
+2. return hash
+3. anchor to smart contract
+4. IPFS store
+
+View all post:
+
+1. pre-render route dynamically (SSR)
+2. fetch hash for posts from network (requires ethers)
+3. retrieve metadata from IPFS
+
+Edit post:
+
+1. fetch hash for posts from network based on post id (requires ethers)
+2. retrieve metadata from IPFS + file content (cover image)
+3. append post id in post data
+4. push to IPFS
+5. update anchor to smart contract
