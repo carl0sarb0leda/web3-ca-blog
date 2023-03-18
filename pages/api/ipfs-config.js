@@ -1,10 +1,12 @@
 import { create } from "ipfs-http-client";
-import { InfuraProjectId, InfuraApiKey } from "../../lib/config";
+import { InfuraIpfsProjectId, InfuraIpfsProjectApiKey } from "../../lib/config";
 
 /* define the ipfs endpoint */
 const auth =
   "Basic " +
-  Buffer.from(InfuraProjectId + ":" + InfuraApiKey).toString("base64");
+  Buffer.from(InfuraIpfsProjectId + ":" + InfuraIpfsProjectApiKey).toString(
+    "base64"
+  );
 
 const ipfsClient = create({
   host: "ipfs.infura.io",
@@ -15,4 +17,4 @@ const ipfsClient = create({
   },
 });
 
-export default ipfsClient
+export default ipfsClient;

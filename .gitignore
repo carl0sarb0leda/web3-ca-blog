@@ -26,7 +26,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
-.env*.local
+.env
 
 # vercel
 .vercel
@@ -44,29 +44,7 @@ typechain-types
 
 #Hardhat files
 cache
-artifacts
-
-
-node_modules
-.env
-coverage
-coverage.json
-typechain
-typechain-types
-
-#Hardhat files
-cache
-artifacts
-
-
-node_modules
-.env
-coverage
-coverage.json
-typechain
-typechain-types
-
-#Hardhat files
-cache
-artifacts
+# artifacts are temporarily included, however, they should be generated on build time
+# https://ethereum.stackexchange.com/questions/122620/is-including-hardhats-artifacts-folder-in-build-files-safe
+# artifacts
 

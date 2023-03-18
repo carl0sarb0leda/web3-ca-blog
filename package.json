@@ -15,6 +15,7 @@
     "@openzeppelin/contracts": "^4.7.3",
     "@walletconnect/web3-provider": "^1.8.0",
     "chai": "^4.3.6",
+    "dotenv": "^16.0.3",
     "easymde": "^2.18.0",
     "ethereum-waffle": "^3.4.4",
     "ethers": "^5.7.1",

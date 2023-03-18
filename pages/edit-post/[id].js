@@ -34,7 +34,7 @@ export default function Post() {
       provider = new ethers.providers.JsonRpcProvider();
     } else if (process.env.NEXT_PUBLIC_ENVIRONMENT === "testnet") {
       provider = new ethers.providers.JsonRpcProvider(
-        "https://rpc-mumbai.matic.today"
+        "https://rpc-mumbai.maticvigil.com/"
       );
     } else {
       provider = new ethers.providers.JsonRpcProvider(

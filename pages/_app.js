@@ -53,8 +53,10 @@ function MyApp({ Component, pageProps }) {
           <Link href="/">
             <a>
               <div className={titleContainer}>
-                <h2 className={title}>Full Stack</h2>
-                <p className={description}>WEB3</p>
+                <h2 className={title}>Decentralised App</h2>
+                <p className={description}>
+                  Create, save and edit blogs with Web3
+                </p>
               </div>
             </a>
           </Link>
@@ -80,6 +82,9 @@ function MyApp({ Component, pageProps }) {
               </Link>
             )
           }
+          <Link href="/about">
+            <a className={link}>About</a>
+          </Link>
         </div>
       </nav>
       <div className={container}>

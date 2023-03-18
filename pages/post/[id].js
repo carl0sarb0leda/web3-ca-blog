@@ -55,12 +55,15 @@ export async function getStaticPaths() {
   /* here we fetch the posts from the network */
   let provider;
   if (process.env.ENVIRONMENT === "local") {
+    console.log("Local");
     provider = new ethers.providers.JsonRpcProvider();
   } else if (process.env.ENVIRONMENT === "testnet") {
+    console.log("Testnet");
     provider = new ethers.providers.JsonRpcProvider(
-      "https://rpc-mumbai.matic.today"
+      "https://rpc-mumbai.maticvigil.com/"
     );
   } else {
+    console.log("Polygon");
     provider = new ethers.providers.JsonRpcProvider("https://polygon-rpc.com/");
   }
 
