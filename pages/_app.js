@@ -6,6 +6,7 @@ import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { AccountContext } from "../context.js";
 import { ownerAddress } from "../config";
+import { InfuraApiKey } from "../lib/config";
 import "easymde/dist/easymde.min.css";
 import "../styles/globals.css";
 
@@ -20,7 +21,7 @@ function MyApp({ Component, pageProps }) {
         walletconnect: {
           package: WalletConnectProvider,
           options: {
-            infuraId: "168e1a2211eb43acb4b26ea4f0513688",
+            infuraId: InfuraApiKey,
           },
         },
       },
