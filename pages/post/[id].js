@@ -23,7 +23,7 @@ export default function Post({ post }) {
 
   return (
     <div>
-      {post && (
+      {post ? (
         <div className={container}>
           {
             /* if the owner is the user, render an edit button */
@@ -46,6 +46,8 @@ export default function Post({ post }) {
             <ReactMarkdown>{post.content}</ReactMarkdown>
           </div>
         </div>
+      ) : (
+        <>Post unavailable. Please try again or check the logs</>
       )}
     </div>
   );
@@ -87,18 +89,28 @@ export async function getStaticProps({ params }) {
   /* post data into the page as props */
   const { id } = params;
   const ipfsUrl = `${ipfsURI}/${id}`;
-  const response = await fetch(ipfsUrl);
-  const data = await response.json();
-  if (data.coverImage) {
-    let coverImage = `${ipfsURI}/${data.coverImage}`;
-    data.coverImage = coverImage;
+  try {
+    const response = await fetch(ipfsUrl);
+    const data = await response.json();
+    if (data.coverImage) {
+      let coverImage = `${ipfsURI}/${data.coverImage}`;
+      data.coverImage = coverImage;
+    }
+    return {
+      props: {
+        post: data,
+      },
+    };
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+    return {
+      props: {
+        post: null,
+      },
+    };
   }
-
-  return {
-    props: {
-      post: data,
-    },
-  };
 }
 
 const editPost = css`
