@@ -9,6 +9,7 @@ This is a decentralised application which uses smart contracts to create, store 
 - [Hardhat](https://hardhat.org/)
 - [Metamask](https://metamask.io/)
 - [Infura](https://infura.io/)
+- [IPFS](https://docs.ipfs.tech/)
 - [Polygon](https://polygon.technology/)
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
@@ -23,7 +24,7 @@ You can deploy in the localhost network following these steps:
 npx hardhat node
 ```
 
-2. Deploy the contracts to the local network and save the contract info in a config file. In a separate terminal run
+2. In a separate terminal, deploy the contracts to the local network and save the contract info in a config file. In a separate terminal run
 
 ```shell
 npx hardhat run --network localhost scripts/deploy.js
